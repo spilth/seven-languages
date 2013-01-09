@@ -10,5 +10,5 @@ You can execute the examples using Rake. To see a list of Rake tasks:
 
 For example, to run Day 1 of the Ruby homework, use the following:
 
-    rake ruby:1
+    rake ruby:day1
 
