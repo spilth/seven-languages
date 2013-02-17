@@ -1,12 +1,21 @@
-namespace :ruby do
+languages = {
+  :ruby => "rb",
+  :io => "io"
+}
 
-  desc "Run Ruby homework for day 1"
-  task :day1 do
-    ruby "ruby/day1.rb"
-  end
+languages.each_pair do |language, extension|
+  namespace language do
+    [:day1, :day2, :day3].each do |day|
+      filename = "#{language}/#{day}.#{extension}"
 
-  desc "Run Ruby homework for day 2"
-  task :day2 do
-    ruby "ruby/day2.rb"
+      if File.exists?(filename)
+        desc "Run #{language} homework for #{day}"
+        task day do
+          puts "Running #{language} #{filename}"
+          puts `#{language} #{filename}`
+        end
+      end
+    end
   end
 end
+
